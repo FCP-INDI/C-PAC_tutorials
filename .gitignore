@@ -1,2 +1,3 @@
 cpac_runs
+!*.ipynb
 .ipynb_checkpoints
