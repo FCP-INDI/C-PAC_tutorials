@@ -2,4 +2,4 @@ bash_kernel==0.7.2
 git+https://github.com/FCP-INDI/cpac.git@0b166d597ac2efedd36bf5777b472122e1b2b781
 matplotlib==3.1.3
 matplotlib-inline==0.1.2
-pandas==1.4.2
+pandas
