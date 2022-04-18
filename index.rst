@@ -5,7 +5,8 @@ These tutorials can be viewed online here, or downloaded from `the FCP-INDI/C-PA
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
    :includehidden:
    :titlesonly:
 
-   1. Observed usage <observed_usage>
+   observed_usage
