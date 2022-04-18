@@ -7,6 +7,7 @@ RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook jupyterlab && \
     apt-get update && \
     apt-get install \
+      apt-utils \
       ca-certificates \
       curl \
       gcc \
