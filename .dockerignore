@@ -1,3 +1,0 @@
-# We don't need the Binder Dockerfile in the Docker image
-binder
-.dockerignore
