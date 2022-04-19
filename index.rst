@@ -9,4 +9,4 @@ These tutorials can be viewed online here, or downloaded from `the FCP-INDI/C-PA
    :includehidden:
    :titlesonly:
 
-   observed_usage
+   observed_usage/index
