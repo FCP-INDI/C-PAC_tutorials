@@ -17,4 +17,5 @@ jobs:
         with:
           token: ${{ secrets.CIRCLE_CI_TOKEN }}
           repo: fcp-indi.github.io
+          org: FCP-INDI
           branch: source
