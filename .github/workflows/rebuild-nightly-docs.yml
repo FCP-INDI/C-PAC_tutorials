@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build nightly documentation
-        uses: zivkaziv/circleci-trigger-github-action@V1.0
+        uses: shnizzedy/github-action-trigger-circleci@v1.1.1
         with:
-          token: ${{ secrets.CIRCLE_CI_TOKEN }}
-          repo: fcp-indi.github.io
-          org: FCP-INDI
           branch: source
+          job: "build-nightly"
+          org: FCP-INDI
+          repo: fcp-indi.github.io
+          token: ${{ secrets.CIRCLE_CI_TOKEN }}
