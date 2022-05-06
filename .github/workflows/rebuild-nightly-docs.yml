@@ -1,0 +1,22 @@
+name: Rebuild nightly docs
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  rebuild-user-docs:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build nightly documentation
+        uses: shnizzedy/github-action-trigger-circleci@v1.1.1
+        with:
+          branch: source
+          job: "build-nightly"
+          org: FCP-INDI
+          repo: fcp-indi.github.io
+          token: ${{ secrets.CIRCLE_CI_TOKEN }}
