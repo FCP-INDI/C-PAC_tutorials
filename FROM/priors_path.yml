@@ -1,0 +1,6 @@
+FROM: fmriprep-options
+segmentation:
+  tissue_segmentation:
+    FSL-FAST:
+      use_priors:
+        priors_path: /custom_fsl/data/standard/tissuepriors/2mm

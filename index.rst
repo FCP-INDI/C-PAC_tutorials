@@ -19,4 +19,5 @@ These tutorials can be viewed online here, or downloaded from `the FCP-INDI/C-PA
    :includehidden:
    :titlesonly:
 
+   FROM/index
    observed_usage/index

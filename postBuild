@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Create and activate cpac (wrapper) virtual environment
+python -m venv wrapper
+source wrapper/bin/activate
+pip install --upgrade pip
+pip install -r cpac-requirements.txt
+pip install ipykernel
+python -m ipykernel install --user --name wrapper --display-name "cpac (commandline wrapper)"
+deactivate
+
+# Create and activate C-PAC (core) virtual environment
+python -m venv core
+source core/bin/activate
+pip install --upgrade pip
+pip install -r https://raw.githubusercontent.com/FCP-INDI/C-PAC/main/requirements.txt
+pip install -r C-PAC-requirements.txt
+pip install ipykernel nipype pathvalidate pyyaml voluptuous
+python -m ipykernel install --user --name core --display-name "C-PAC (core software)"
+deactivate
