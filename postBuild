@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Create and activate bash kernel
+python -m bash_kernel.install
+
+# Create and activate cpac (wrapper kernel) virtual environment
+python -m venv wrapper
+# shellcheck source=/dev/null
+source wrapper/bin/activate
+pip install --upgrade pip
+pip install -r cpac-requirements.txt
+python -m ipykernel install --user --name wrapper --display-name "cpac (commandline wrapper)"
+deactivate
+
+# Create and activate C-PAC (core kernel) virtual environment
+python -m venv core
+# shellcheck source=/dev/null
+source core/bin/activate
+pip install --upgrade pip
+pip install nipype==1.8.6 numpy==1.25.1 pyyaml==6.0 "setuptools<60.0" voluptuous==0.13.1 wheel
+pip install -r C-PAC-requirements.txt
+python -m ipykernel install --user --name core --display-name "C-PAC (core software)"
+deactivate

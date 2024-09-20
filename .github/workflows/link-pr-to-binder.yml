@@ -1,0 +1,28 @@
+# Copyright (C) 2024  C-PAC Developers
+# This file is part of C-PAC_tutorials.
+# C-PAC_tutorials is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# C-PAC_tutorials is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along with C-PAC. If not, see <https://www.gnu.org/licenses/>.
+name: Link PR to Binder
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  Create-Binder-Badge:
+    runs-on: ubuntu-latest
+    steps:
+    - name: comment on PR with Binder link
+      uses: actions/github-script@v1
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          var BRANCH_NAME = process.env.BRANCH_NAME;
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/${context.repo.owner}/${context.repo.repo}/${BRANCH_NAME}) :point_left: Launch a binder notebook on this branch`
+          })
+      env:
+        BRANCH_NAME: ${{ github.event.pull_request.head.ref }}
